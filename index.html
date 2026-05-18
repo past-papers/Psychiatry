@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) --> 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GW7LMR7HSJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,7 +12,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psychiatry Quiz</title>
+    <title>Psychiatry Past Papers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -6770,7 +6770,7 @@
       
         ];
 
-        const flatQuestions = [];
+                                                const flatQuestions = [];
         let globalIdCounter = 0;
         topicsData.forEach((topic) => {
             topic.qs.forEach(q => {
@@ -6780,28 +6780,16 @@
 
         const TOTAL_QUESTIONS = flatQuestions.length;
 
-        // Shuffle function (Fisher-Yates)
-        const shuffle = (array) => {
-            const arr = [...array];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
-        };
-
         const BADGES = [
-            { id: 1, req: 1, icon: "🦭", label: "First Correct", pct: 0 },
+            { id: 1, req: 1, icon: "🦭", label: "First Correct" },
             { id: 2, req: Math.ceil(TOTAL_QUESTIONS * 0.10), icon: "🌟", label: "10% Master", pct: 10 },
             { id: 3, req: Math.ceil(TOTAL_QUESTIONS * 0.30), icon: "🏵️", label: "30% Master", pct: 30 },
             { id: 4, req: Math.ceil(TOTAL_QUESTIONS * 0.60), icon: "🏅", label: "60% Master", pct: 60 },
-            { id: 5, req: TOTAL_QUESTIONS, icon: "🏆", label: "Perfect Master", pct: 100 }
+            { id: 5, req: TOTAL_QUESTIONS, icon: "🏆", label: "100% Master", pct: 100 }
         ];
 
         const ChatGPTIcon = ({ className }) => (
-            <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.073zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0993 3.8558L12.5973 8.3829l2.02-1.1686a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.3927-.6813zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L8.909 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1686a.0804.0804 0 0 1-.038-.0567V6.055a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.44a.7948.7948 0 0 0-.3927.6813v6.7417zm1.0826-1.1212v-3.3685L12.3119 6.7l2.9228 1.6734v3.3685L12.3119 13.415l-2.9228-1.6734z"/>
-            </svg>
+            <svg className={className} viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.073zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0993 3.8558L12.5973 8.3829l2.02-1.1686a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.3927-.6813zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L8.909 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1686a.0804.0804 0 0 1-.038-.0567V6.055a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.44a.7948.7948 0 0 0-.3927.6813v6.7417zm1.0826-1.1212v-3.3685L12.3119 6.7l2.9228 1.6734v3.3685L12.3119 13.415l-2.9228-1.6734z"/></svg>
         );
 
         const BookmarkIcon = ({ className }) => (
@@ -6815,59 +6803,39 @@
             const [activeQuiz, setActiveQuiz] = useState([]);
             const [currentQIndex, setCurrentQIndex] = useState(0);
             const [quizTitle, setQuizTitle] = useState("");
-            
-            // Explanation Toggle State
-            const [isExplanationExpanded, setIsExplanationExpanded] = useState(true);
+            const [isDarkMode, setIsDarkMode] = useState(false);
+            const [showExplanation, setShowExplanation] = useState(false);
 
-            // Persistent Dark Mode
-            const [isDarkMode, setIsDarkMode] = useState(() => {
-                const saved = localStorage.getItem('quiz_theme');
-                return saved ? JSON.parse(saved) : false;
-            });
+            const [globalAnswers, setGlobalAnswers] = useState(() => JSON.parse(localStorage.getItem('globalAnswers')) || {});
+            const [hardIds, setHardIds] = useState(() => JSON.parse(localStorage.getItem('hardIds')) || []);
+            const [markedIds, setMarkedIds] = useState(() => JSON.parse(localStorage.getItem('markedIds')) || []);
+            const [earnedBadgeIds, setEarnedBadgeIds] = useState(() => JSON.parse(localStorage.getItem('earnedBadgeIds')) || []);
 
-            // Persistent Statistics State
-            const [globalAnswers, setGlobalAnswers] = useState(() => JSON.parse(localStorage.getItem('quiz_globalAnswers')) || {});
-            const [hardIds, setHardIds] = useState(() => JSON.parse(localStorage.getItem('quiz_hardIds')) || []);
-            const [markedIds, setMarkedIds] = useState(() => JSON.parse(localStorage.getItem('quiz_markedIds')) || []);
-            const [earnedBadgeIds, setEarnedBadgeIds] = useState(() => JSON.parse(localStorage.getItem('quiz_earnedBadgeIds')) || []);
-            
-            // UI Modals & Alerts
             const [pendingBadgeAlerts, setPendingBadgeAlerts] = useState([]);
             const [showBadgeModal, setShowBadgeModal] = useState(false);
-            const [confirmDialog, setConfirmDialog] = useState({ isOpen: false, title: '', message: '', action: null, type: '' });
+
+            useEffect(() => {
+                localStorage.setItem('globalAnswers', JSON.stringify(globalAnswers));
+                localStorage.setItem('hardIds', JSON.stringify(hardIds));
+                localStorage.setItem('markedIds', JSON.stringify(markedIds));
+                localStorage.setItem('earnedBadgeIds', JSON.stringify(earnedBadgeIds));
+            }, [globalAnswers, hardIds, markedIds, earnedBadgeIds]);
 
             useEffect(() => {
                 if (isDarkMode) document.documentElement.classList.add('dark');
                 else document.documentElement.classList.remove('dark');
-                localStorage.setItem('quiz_theme', JSON.stringify(isDarkMode));
             }, [isDarkMode]);
 
-            // Save to local storage on changes
-            useEffect(() => {
-                localStorage.setItem('quiz_globalAnswers', JSON.stringify(globalAnswers));
-                localStorage.setItem('quiz_hardIds', JSON.stringify(hardIds));
-                localStorage.setItem('quiz_markedIds', JSON.stringify(markedIds));
-                localStorage.setItem('quiz_earnedBadgeIds', JSON.stringify(earnedBadgeIds));
-            }, [globalAnswers, hardIds, markedIds, earnedBadgeIds]);
-
-            // Derived Stats
             const totalAnswered = Object.keys(globalAnswers).length;
-            
-            // Check Correctness: globalAnswers stores selected opt.id
+            // UPDATE: Hard questions are considered wrong in dashboard stats even if correctly answered
             const correctIds = Object.keys(globalAnswers).filter(id => {
                 const q = flatQuestions.find(fq => fq.id === id);
-                if (!q) return false;
-                const correctOpt = q.opts.find(o => o.isCorrect);
-                return globalAnswers[id] === correctOpt.id;
+                return q && globalAnswers[id] === q.a && !hardIds.includes(id);
             });
-            
             const wrongIds = Object.keys(globalAnswers).filter(id => {
                 const q = flatQuestions.find(fq => fq.id === id);
-                if (!q) return false;
-                const correctOpt = q.opts.find(o => o.isCorrect);
-                return globalAnswers[id] !== correctOpt.id;
+                return q && (globalAnswers[id] !== q.a || hardIds.includes(id));
             });
-            
             const unansweredCount = TOTAL_QUESTIONS - totalAnswered;
             const hardOrWrongIds = Array.from(new Set([...wrongIds, ...hardIds]));
 
@@ -6875,12 +6843,9 @@
                 const newlyEarned = [];
                 BADGES.forEach(badge => {
                     if (!earnedBadgeIds.includes(badge.id)) {
-                        if (correctIds.length >= badge.req) {
-                            newlyEarned.push(badge);
-                        }
+                        if (correctIds.length >= badge.req) newlyEarned.push(badge);
                     }
                 });
-
                 if (newlyEarned.length > 0) {
                     setEarnedBadgeIds(prev => [...prev, ...newlyEarned.map(b => b.id)]);
                     setPendingBadgeAlerts(prev => [...prev, ...newlyEarned]);
@@ -6888,9 +6853,7 @@
             }, [correctIds.length]);
 
             const triggerBadgeModalIfAny = () => {
-                if (pendingBadgeAlerts.length > 0) {
-                    setShowBadgeModal(true);
-                }
+                if (pendingBadgeAlerts.length > 0) setShowBadgeModal(true);
             };
 
             const closeBadgeModal = () => {
@@ -6901,101 +6864,94 @@
             const nextBadge = BADGES.find(b => !earnedBadgeIds.includes(b.id)) || null;
 
             const startQuiz = (questions, title, startIdx = 0) => {
-                // Shuffle questions and their internal options
-                let preparedQuestions = shuffle([...questions]).map(q => ({
-                    ...q,
-                    opts: shuffle([...q.opts])
-                }));
-                
-                setActiveQuiz(preparedQuestions);
+                const qWithShuffledOptions = questions.map(q => {
+                    const indices = q.o.map((_, i) => i).sort(() => 0.5 - Math.random());
+                    return { ...q, shuffledIndices: indices };
+                });
+                setActiveQuiz(qWithShuffledOptions);
                 setQuizTitle(title);
                 setCurrentQIndex(startIdx);
-                setIsExplanationExpanded(true); // Reset explanation state
+                setShowExplanation(globalAnswers[qWithShuffledOptions[startIdx].id] !== undefined);
                 setView('quiz');
             };
 
             const startTopic = (topicIndex) => {
-                const qs = topicsData[topicIndex].qs.map(qText => flatQuestions.find(fq => fq.id === flatQuestions.find(x => x.q === qText.q).id));
-                // Only load questions that have NOT been answered yet
-                const unsolvedQs = qs.filter(q => globalAnswers[q.id] === undefined);
-                
-                if (unsolvedQs.length === 0) {
-                    alert("You have already answered all questions in this topic! You can review them via the Dashboard or reset the topic to start over.");
-                    return;
-                }
-
-                startQuiz(unsolvedQs, topicsData[topicIndex].t, 0);
-            };
-
-            const confirmResetTopic = (topicIndex) => {
-                setConfirmDialog({
-                    isOpen: true,
-                    title: "Reset Topic Progress",
-                    message: "Are you sure you want to reset this topic? This will affect your badges and completed questions on the dashboard.",
-                    type: 'warning',
-                    action: () => {
-                        const qs = topicsData[topicIndex].qs.map(qText => flatQuestions.find(fq => fq.id === flatQuestions.find(x => x.q === qText.q).id));
-                        const idsToReset = qs.map(q => q.id);
-                        
-                        setGlobalAnswers(prev => {
-                            const newAnswers = { ...prev };
-                            idsToReset.forEach(id => delete newAnswers[id]);
-                            return newAnswers;
-                        });
-                        
-                        setHardIds(prev => prev.filter(id => !idsToReset.includes(id)));
-                        setMarkedIds(prev => prev.filter(id => !idsToReset.includes(id)));
-                    }
-                });
-            };
-
-            const confirmGlobalReset = () => {
-                setConfirmDialog({
-                    isOpen: true,
-                    title: "Erase All Progress",
-                    message: "Are you sure you want to completely erase all your progress, history, and badges? This action cannot be undone.",
-                    type: 'danger',
-                    action: () => {
-                        setGlobalAnswers({});
-                        setHardIds([]);
-                        setMarkedIds([]);
-                        setEarnedBadgeIds([]);
-                        localStorage.clear();
-                        if (isDarkMode) localStorage.setItem('quiz_theme', JSON.stringify(true));
-                    }
-                });
+                let qs = topicsData[topicIndex].qs.map(qText => flatQuestions.find(fq => fq.q === qText.q));
+                qs = [...qs].sort(() => 0.5 - Math.random());
+                let startIdx = qs.findIndex(q => globalAnswers[q.id] === undefined);
+                if (startIdx === -1) startIdx = 0; 
+                startQuiz(qs, topicsData[topicIndex].t, startIdx);
             };
 
             const startRandomMaster = () => {
                 const unsolvedQs = flatQuestions.filter(q => globalAnswers[q.id] === undefined);
-                const targetQs = unsolvedQs.length > 0 ? unsolvedQs : flatQuestions;
-                startQuiz(targetQs, "Random Master Quiz (Unsolved)", 0);
+                if(unsolvedQs.length === 0) return alert("You have solved all questions! Reset the quiz if you want to start over.");
+                const shuffled = [...unsolvedQs].sort(() => 0.5 - Math.random());
+                startQuiz(shuffled, "Random Master Quiz", 0);
             };
 
             const resolveReviewQuestions = () => {
                 if (hardOrWrongIds.length === 0) return;
-                const reviewQs = flatQuestions.filter(q => hardOrWrongIds.includes(q.id));
+                const reviewQs = flatQuestions.filter(q => hardOrWrongIds.includes(q.id)).sort(() => 0.5 - Math.random());
+                
+                // UPDATE: Clear answers to freshly retake them
+                setGlobalAnswers(prev => {
+                    const newAnswers = { ...prev };
+                    reviewQs.forEach(q => delete newAnswers[q.id]);
+                    return newAnswers;
+                });
                 startQuiz(reviewQs, "Review: Hard & Incorrect Questions", 0);
             };
 
             const reviewMarkedQuestions = () => {
                 if (markedIds.length === 0) return;
-                const mQs = flatQuestions.filter(q => markedIds.includes(q.id));
+                const mQs = flatQuestions.filter(q => markedIds.includes(q.id)).sort(() => 0.5 - Math.random());
+                
+                // UPDATE: Clear answers to freshly retake them
+                setGlobalAnswers(prev => {
+                    const newAnswers = { ...prev };
+                    mQs.forEach(q => delete newAnswers[q.id]);
+                    return newAnswers;
+                });
                 startQuiz(mQs, "Review: Marked Questions", 0);
             };
 
-            const handleOptionClick = (optId) => {
+            const resetAll = () => {
+                if (window.confirm("Are you sure you want to reset EVERYTHING? This clears all progress, badges, and saves.")) {
+                    setGlobalAnswers({});
+                    setHardIds([]);
+                    setMarkedIds([]);
+                    setEarnedBadgeIds([]);
+                    localStorage.clear();
+                }
+            };
+
+            const resetTopic = (e, topicIndex) => {
+                e.stopPropagation();
+                if (window.confirm("Are you sure you want to reset this topic?")) {
+                    const qs = topicsData[topicIndex].qs.map(qText => flatQuestions.find(fq => fq.q === qText.q));
+                    const idsToReset = qs.map(q => q.id);
+                    setGlobalAnswers(prev => {
+                        const newAnswers = { ...prev };
+                        idsToReset.forEach(id => delete newAnswers[id]);
+                        return newAnswers;
+                    });
+                    setHardIds(prev => prev.filter(id => !idsToReset.includes(id)));
+                    setMarkedIds(prev => prev.filter(id => !idsToReset.includes(id)));
+                }
+            };
+
+            const handleOptionClick = (origIdx) => {
                 const currentQ = activeQuiz[currentQIndex];
                 if (globalAnswers[currentQ.id] !== undefined) return; 
                 
-                setGlobalAnswers(prev => ({ ...prev, [currentQ.id]: optId }));
-                setIsExplanationExpanded(true); // Auto expand on answer
-
-                const selectedOpt = currentQ.opts.find(o => o.id === optId);
-                if (selectedOpt && selectedOpt.isCorrect) {
-                    if (hardIds.includes(currentQ.id)) {
-                        setHardIds(prev => prev.filter(id => id !== currentQ.id));
-                    }
+                const isCorrect = origIdx === currentQ.a;
+                setGlobalAnswers(prev => ({ ...prev, [currentQ.id]: origIdx }));
+                setShowExplanation(true);
+                
+                // UPDATE: Automatically unselect hard upon answering, whether right or wrong.
+                if (hardIds.includes(currentQ.id)) {
+                    setHardIds(prev => prev.filter(id => id !== currentQ.id));
                 }
             };
 
@@ -7012,28 +6968,22 @@
             };
 
             const askChatGPTPerQuestion = () => {
-                const currentQ = activeQuiz[currentQIndex];
-                const optionsText = currentQ.opts.map((opt, i) => `${String.fromCharCode(65+i)}. ${opt.text}`).join('\n');
-                const correctOpt = currentQ.opts.find(o => o.isCorrect);
-                const correctAnswerText = correctOpt ? correctOpt.text : "";
-                
-                // Exclude explanations from prompt per user request
-                const prompt = `Question: ${currentQ.q}\n\nOptions:\n${optionsText}\n\nCorrect Answer: ${correctAnswerText}\n\nExplain this question in detail, including why the correct answer is correct and why the other options are wrong. At the end, write a high-yield summary note to remember.`;
+                const q = activeQuiz[currentQIndex];
+                const optionsText = q.o.map((opt, i) => `${String.fromCharCode(65+i)}. ${opt}`).join('\n');
+                const correctAnswerText = `${String.fromCharCode(65+q.a)}. ${q.o[q.a]}`;
+                const prompt = `Question: ${q.q}\n\nOptions:\n${optionsText}\n\nCorrect Answer: ${correctAnswerText}\n\nExplain this question in detail, including why the correct answer is correct and why the other options are wrong. At the end, write a high-yield summary note note to remember.`;
                 window.open(`https://chatgpt.com/?q=${encodeURIComponent(prompt)}`, '_blank');
             };
 
             const generateTutorialWithChatGPT = () => {
+                const reviewQs = flatQuestions.filter(q => hardOrWrongIds.includes(q.id));
+                if(reviewQs.length === 0) return;
                 let prompt = "I found these questions hard to solve. Instead of discussing each question separately and directly, please create a well-organized and structured tutorial based on the information in these questions, along with the relevant basics, so I can read and learn\n\n";
-                // Add a few difficult questions to the prompt to anchor it
-                const reviewQs = flatQuestions.filter(q => hardOrWrongIds.includes(q.id)).slice(0, 5); // Limit to 5 to avoid enormous URLs
-                if(reviewQs.length === 0) prompt += "Topic: Geriatric Psychiatry & ER Psychiatry.";
-                
                 reviewQs.forEach((q, i) => {
-                    const optionsText = q.opts.map((opt, idx) => `${String.fromCharCode(65+idx)}. ${opt.text}`).join('\n');
-                    const correctOpt = q.opts.find(o => o.isCorrect);
-                    prompt += `Q${i+1}: ${q.q}\nOptions:\n${optionsText}\nCorrect Answer: ${correctOpt ? correctOpt.text : ''}\n\n`;
+                    const optionsText = q.o.map((opt, idx) => `${String.fromCharCode(65+idx)}. ${opt}`).join('\n');
+                    const correctAnswerText = `${String.fromCharCode(65+q.a)}. ${q.o[q.a]}`;
+                    prompt += `Q${i+1}: ${q.q}\nOptions:\n${optionsText}\nCorrect Answer: ${correctAnswerText}\n\n`;
                 });
-                
                 window.open(`https://chatgpt.com/?q=${encodeURIComponent(prompt)}`, '_blank');
             };
 
@@ -7044,8 +6994,9 @@
 
             const nextQuestion = () => {
                 if (currentQIndex < activeQuiz.length - 1) {
-                    setCurrentQIndex(currentQIndex + 1);
-                    setIsExplanationExpanded(true); // Reset for next
+                    const nextIdx = currentQIndex + 1;
+                    setCurrentQIndex(nextIdx);
+                    setShowExplanation(globalAnswers[activeQuiz[nextIdx].id] !== undefined);
                 } else {
                     setView('results');
                     triggerBadgeModalIfAny();
@@ -7054,8 +7005,9 @@
 
             const prevQuestion = () => {
                 if (currentQIndex > 0) {
-                    setCurrentQIndex(currentQIndex - 1);
-                    setIsExplanationExpanded(true);
+                    const prevIdx = currentQIndex - 1;
+                    setCurrentQIndex(prevIdx);
+                    setShowExplanation(globalAnswers[activeQuiz[prevIdx].id] !== undefined);
                 }
             };
 
@@ -7064,41 +7016,12 @@
             return (
                 <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors pb-12 font-sans relative">
                     
-                    {/* CONFIRMATION MODAL */}
-                    {confirmDialog.isOpen && (
-                        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 fade-in">
-                            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 max-w-sm w-full shadow-2xl scale-up border border-slate-200 dark:border-slate-700">
-                                <h3 className={`text-xl font-bold mb-2 ${confirmDialog.type === 'danger' ? 'text-red-600 dark:text-red-400' : ''}`}>
-                                    {confirmDialog.title}
-                                </h3>
-                                <p className="text-slate-600 dark:text-slate-300 mb-6">{confirmDialog.message}</p>
-                                <div className="flex gap-3 justify-end">
-                                    <button 
-                                        onClick={() => setConfirmDialog({ ...confirmDialog, isOpen: false })}
-                                        className="px-4 py-2 font-semibold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition"
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button 
-                                        onClick={() => {
-                                            confirmDialog.action();
-                                            setConfirmDialog({ ...confirmDialog, isOpen: false });
-                                        }}
-                                        className={`px-4 py-2 rounded-xl font-bold text-white transition shadow-sm ${confirmDialog.type === 'danger' ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'}`}
-                                    >
-                                        Yes, Proceed
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
                     {/* HEADER */}
                     <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 shadow-sm sticky top-0 z-10 transition-colors">
                         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
                             <h1 className="text-xl font-bold flex items-center gap-2">
                                 <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-                                Forensics P.Ps
+                                Psychiatry Past Papers
                             </h1>
                             <div className="flex items-center gap-4">
                                 <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition">
@@ -7118,10 +7041,9 @@
                     </header>
 
                     <main className="max-w-4xl mx-auto px-4 mt-8">
-                        {}
+                        {/* VIEW: MENU / DASHBOARD */}
                         {view === 'menu' && (
                             <div className="fade-in">
-                                
                                 <div className="inline-block bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold mb-6 shadow-sm">
                                     design by Mahmoud Ismail
                                 </div>
@@ -7175,8 +7097,8 @@
                                                         <span className="text-3xl drop-shadow-sm mb-1">{b.icon}</span>
                                                     </div>
                                                 ) : (
-                                                    <div key={i} className="flex-shrink-0 w-20 h-20 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 flex flex-col items-center justify-center text-slate-300 dark:text-slate-600" title={`Requires ${b.pct}% Correct`}>
-                                                        <span className="text-xs font-bold">{b.pct}%</span>
+                                                    <div key={i} className="flex-shrink-0 w-20 h-20 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center opacity-40">
+                                                        <span className="text-xs font-bold text-center">{b.label}</span>
                                                     </div>
                                                 );
                                             })}
@@ -7189,23 +7111,26 @@
                                 </div>
                                 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                                    <div className="col-span-1 md:col-span-2 flex flex-col gap-2">
+                                    <div className="col-span-1 md:col-span-2 flex flex-col sm:flex-row gap-3">
                                         <button 
                                             onClick={startRandomMaster}
-                                            className="p-6 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl shadow-sm hover:shadow-md transition text-left group"
+                                            className="flex-1 p-6 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl shadow-sm hover:shadow-md transition text-left group"
                                         >
                                             <div className="flex justify-between items-center">
                                                 <div>
                                                     <h3 className="text-xl font-bold text-white mb-1">Random Master Quiz</h3>
-                                                    <p className="text-blue-100 text-sm">Draw from all {TOTAL_QUESTIONS} questions (Unsolved first)</p>
+                                                    <p className="text-blue-100 text-sm">Continue unsolved questions in random order</p>
                                                 </div>
                                                 <div className="bg-white/20 p-3 rounded-full group-hover:bg-white/30 transition">
                                                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                                 </div>
                                             </div>
                                         </button>
-                                        <button onClick={confirmGlobalReset} className="self-end text-xs font-semibold text-red-500 hover:text-red-700 dark:hover:text-red-400 px-2 py-1">
-                                            ⚠ Reset All Progress
+                                        <button 
+                                            onClick={resetAll}
+                                            className="p-6 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-2xl shadow-sm hover:bg-red-200 dark:hover:bg-red-800/40 transition font-bold"
+                                        >
+                                            Reset All
                                         </button>
                                     </div>
 
@@ -7254,7 +7179,7 @@
                                     )}
 
                                     {topicsData.map((topic, idx) => {
-                                        const topicQIds = topic.qs.map(qText => flatQuestions.find(fq => fq.q === qText.q).id);
+                                        const topicQIds = topic.qs.map(q => flatQuestions.find(fq => fq.q === q.q).id);
                                         const answeredInTopic = topicQIds.filter(id => globalAnswers[id] !== undefined).length;
                                         
                                         return (
@@ -7269,13 +7194,13 @@
                                                         <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                                                     </div>
                                                     <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 mt-3 rounded-full overflow-hidden">
-                                                        <div className="bg-blue-500 h-1.5 transition-all duration-300" style={{width: `${(answeredInTopic/topic.qs.length)*100}%`}}></div>
+                                                        <div className="bg-blue-500 h-1.5" style={{width: `${(answeredInTopic/topic.qs.length)*100}%`}}></div>
                                                     </div>
                                                 </button>
                                                 {answeredInTopic > 0 && (
                                                     <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80">
                                                         <button 
-                                                            onClick={(e) => { e.stopPropagation(); confirmResetTopic(idx); }}
+                                                            onClick={(e) => resetTopic(e, idx)}
                                                             className="text-xs font-semibold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-1"
                                                         >
                                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
@@ -7315,13 +7240,14 @@
                                     </h3>
 
                                     <div className="space-y-4">
-                                        {activeQuiz[currentQIndex].opts.map((opt, idx) => {
+                                        {activeQuiz[currentQIndex].shuffledIndices.map((origIdx, renderIdx) => {
                                             const currentQ = activeQuiz[currentQIndex];
                                             const currentQId = currentQ.id;
                                             const isAnswered = globalAnswers[currentQId] !== undefined;
-                                            const isSelected = globalAnswers[currentQId] === opt.id;
-                                            const isCorrect = opt.isCorrect;
-                                            const isAiOption = opt.isAi;
+                                            const isSelected = globalAnswers[currentQId] === origIdx;
+                                            const isCorrect = currentQ.a === origIdx;
+                                            const isAiOption = currentQ.aiOptIndices?.includes(origIdx);
+                                            const optionText = currentQ.o[origIdx];
                                             
                                             let btnClass = "w-full text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-start gap-3 ";
                                             
@@ -7333,73 +7259,62 @@
                                                 } else if (isSelected) {
                                                     btnClass += "border-red-400 bg-red-50 dark:bg-red-900/30 text-red-900 dark:text-red-100";
                                                 } else {
-                                                    // Make other incorrect non-selected options more visible instead of highly opaque
-                                                    btnClass += "border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 opacity-70";
+                                                    btnClass += "border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-50";
                                                 }
                                             }
 
                                             return (
-                                                <div key={opt.id} className="flex flex-col gap-1">
+                                                <div key={renderIdx} className="flex flex-col gap-1">
                                                     <button 
-                                                        onClick={() => handleOptionClick(opt.id)}
+                                                        onClick={() => handleOptionClick(origIdx)}
                                                         className={btnClass}
                                                         disabled={isAnswered}
                                                     >
                                                         <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold border ${isAnswered ? (isCorrect ? 'bg-green-500 border-green-500 text-white' : (isSelected ? 'bg-red-500 border-red-500 text-white' : 'border-slate-300 dark:border-slate-600 text-slate-400')) : 'border-slate-300 dark:border-slate-500 text-slate-500 dark:text-slate-300'}`}>
-                                                        {String.fromCharCode(65 + idx)}
-                                                    </span>
-                                                    <span className="mt-0.5 leading-snug">{opt.text}</span>
-                                                </button>
-                                                
-                                                {/* Explanations rendered below every specific option */}
-                                                {isAnswered && isExplanationExpanded && (
-                                                    <div className="pl-12 pr-4 text-sm fade-in mt-2 mb-2">
-                                                        {isAiOption && (
-                                                            <div className="text-purple-600 dark:text-purple-400 font-bold mb-1 flex items-center gap-1 text-xs uppercase tracking-wide">
-                                                                ✨ This is an AI option
-                                                            </div>
-                                                        )}
-                                                        <div className={`p-4 rounded-xl border leading-relaxed ${isCorrect ? 'bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800/60' : (isSelected ? 'bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800/60' : 'bg-slate-50 border-slate-200 dark:bg-slate-800/50 dark:border-slate-700')}`}>
-                                                            <span className="text-slate-700 dark:text-slate-200 block">{opt.exp}</span>
+                                                            {String.fromCharCode(65 + renderIdx)}
+                                                        </span>
+                                                        <span className="mt-0.5 leading-snug">{optionText}</span>
+                                                    </button>
+                                                    
+                                                    {isAnswered && showExplanation && (
+                                                        <div className="pl-12 pr-4 text-sm fade-in mt-1">
+                                                            {currentQ.oExp && currentQ.oExp[origIdx] && (
+                                                                <div className={`p-3 rounded-lg border ${isCorrect ? 'bg-green-50/50 border-green-100 dark:bg-green-900/10 dark:border-green-800/50' : (isSelected ? 'bg-red-50/50 border-red-100 dark:bg-red-900/10 dark:border-red-800/50' : 'bg-slate-50 border-slate-100 dark:bg-slate-800 dark:border-slate-700')}`}>
+                                                                    {isAiOption && <div className="text-purple-600 dark:text-purple-400 font-bold mb-1 text-xs uppercase tracking-wide">✨ AI Generated Option</div>}
+                                                                    <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{currentQ.oExp[origIdx]}</span>
+                                                                </div>
+                                                            )}
+                                                            {!currentQ.oExp && isCorrect && (
+                                                                <div className="p-3 rounded-lg border bg-green-50/50 border-green-100 dark:bg-green-900/10 dark:border-green-800/50">
+                                                                    <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{currentQ.e}</span>
+                                                                </div>
+                                                            )}
                                                         </div>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        );
-                                    })}
+                                                    )}
+                                                </div>
+                                            );
+                                        })}
                                     </div>
 
-                                    {/* Evaluation and ChatGPT Button Box */}
-                                    {globalAnswers[activeQuiz[currentQIndex].id] !== undefined && (
-                                        <div className="mt-6 border-t border-slate-100 dark:border-slate-700 pt-6">
-                                            
-                                            {isExplanationExpanded && activeQuiz[currentQIndex].eval && (
-                                                <div className="p-4 mb-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-r-xl text-slate-700 dark:text-slate-300 text-sm leading-relaxed fade-in">
-                                                    <strong>Evaluation: </strong> {activeQuiz[currentQIndex].eval}
-                                                </div>
-                                            )}
+                                    {globalAnswers[activeQuiz[currentQIndex].id] !== undefined && showExplanation && activeQuiz[currentQIndex].evaluation && (
+                                        <div className="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl text-sm text-indigo-900 dark:text-indigo-200 fade-in shadow-sm">
+                                            <strong className="block mb-1 text-indigo-700 dark:text-indigo-400">📝 Evaluation:</strong> {activeQuiz[currentQIndex].evaluation}
+                                        </div>
+                                    )}
 
-                                            <div className="flex flex-col sm:flex-row gap-3 justify-between items-center">
-                                                <button 
-                                                    onClick={() => setIsExplanationExpanded(!isExplanationExpanded)}
-                                                    className="w-full sm:w-auto px-4 py-2 text-sm font-bold bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition text-slate-600 dark:text-slate-300"
-                                                >
-                                                    {isExplanationExpanded ? "Hide Explanations" : "Show Explanations"}
-                                                </button>
-                                                
-                                                <button 
-                                                    onClick={askChatGPTPerQuestion}
-                                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold bg-[#10a37f] dark:bg-[#0d8a6a] text-white rounded-lg hover:bg-[#0e906f] dark:hover:bg-[#0b7358] transition shadow-sm"
-                                                >
-                                                    <ChatGPTIcon className="w-5 h-5 text-white"/>
-                                                    Ask ChatGPT
-                                                </button>
-                                            </div>
+                                    {globalAnswers[activeQuiz[currentQIndex].id] !== undefined && (
+                                        <div className="mt-4 flex justify-end">
+                                            <button 
+                                                onClick={() => setShowExplanation(!showExplanation)}
+                                                className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                                            >
+                                                {showExplanation ? 'Hide Explanations ▲' : 'Show Explanations ▼'}
+                                            </button>
                                         </div>
                                     )}
 
                                     {/* Mark for Later Checkbox */}
-                                    <div className="mt-8 flex items-center gap-2">
+                                    <div className="mt-8 flex items-center gap-2 border-t border-slate-100 dark:border-slate-700 pt-6">
                                         <input 
                                             type="checkbox" 
                                             id="markLater" 
@@ -7411,9 +7326,21 @@
                                             Mark this question to review later
                                         </label>
                                     </div>
+
+                                    {/* POST-ANSWER REVEAL */}
+                                    {globalAnswers[activeQuiz[currentQIndex].id] !== undefined && (
+                                        <div className="mt-6 fade-in space-y-4">
+                                            <button 
+                                                onClick={askChatGPTPerQuestion}
+                                                className="w-full flex items-center justify-center gap-2 p-3 bg-[#10a37f] dark:bg-[#0d8a6a] text-white font-bold rounded-xl hover:bg-[#0e906f] dark:hover:bg-[#0b7358] transition shadow-sm"
+                                            >
+                                                <ChatGPTIcon className="w-5 h-5"/>
+                                                Ask ChatGPT
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
 
-                                {}
                                 <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-4">
                                     <button 
                                         onClick={prevQuestion}
@@ -7431,10 +7358,10 @@
                                             {hardIds.includes(activeQuiz[currentQIndex].id) ? 'Hard (Added)' : 'Mark Hard'}
                                         </button>
 
+                                        {/* UPDATE: Next button is completely unlocked and style is always active */}
                                         <button 
                                             onClick={nextQuestion}
-                                            className={`px-6 py-3 rounded-xl font-bold transition shadow-sm flex-1 sm:flex-none justify-center flex items-center ${globalAnswers[activeQuiz[currentQIndex].id] !== undefined ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-slate-200 text-slate-400 dark:bg-slate-700 dark:text-slate-500 cursor-not-allowed'}`}
-                                            disabled={globalAnswers[activeQuiz[currentQIndex].id] === undefined}
+                                            className="px-6 py-3 rounded-xl font-bold transition shadow-sm flex-1 sm:flex-none justify-center flex items-center bg-blue-600 text-white hover:bg-blue-700"
                                         >
                                             {currentQIndex === activeQuiz.length - 1 ? 'Finish' : 'Next'} &rarr;
                                         </button>
@@ -7453,12 +7380,6 @@
                                     <h2 className="text-3xl font-bold mb-1">Session Completed!</h2>
                                 </div>
                                 
-                                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-8 mb-8 shadow-sm text-center transition-colors">
-                                    <div className="text-xl font-medium text-slate-500 dark:text-slate-400 mb-4">
-                                        Great job practicing! Check your dashboard for your overall stats.
-                                    </div>
-                                </div>
-
                                 <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                                     <button 
                                         onClick={navigateHome}
@@ -7470,7 +7391,7 @@
                             </div>
                         )}
                         
-                        {}
+                        {/* BADGE MODAL ALERT */}
                         {showBadgeModal && pendingBadgeAlerts.length > 0 && (
                             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 fade-in">
                                 <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl scale-up border border-slate-200 dark:border-slate-700 relative">
@@ -7508,9 +7429,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
