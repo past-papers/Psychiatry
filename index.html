@@ -7030,7 +7030,28 @@ const flatQuestions = [];
                     const correctAnswerText = `${String.fromCharCode(65+q.a)}. ${q.o[q.a]}`;
                     prompt += `Q${i+1}: ${q.q}\nOptions:\n${optionsText}\nCorrect Answer: ${correctAnswerText}\n\n`;
                 });
-                window.open(`https://chatgpt.com/?q=${encodeURIComponent(prompt)}`, '_blank');
+                navigator.clipboard.writeText(prompt).then(() => {
+                    window.open('https://chatgpt.com/', '_blank');
+                    showAlert('✅ Prompt copied to clipboard!\n\nChatGPT is opening — just paste (Ctrl+V) into the chat box.');
+                }).catch(() => {
+                    // Fallback: create a textarea, select all, copy
+                    const ta = document.createElement('textarea');
+                    ta.value = prompt;
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.focus();
+                    ta.select();
+                    try {
+                        document.execCommand('copy');
+                        window.open('https://chatgpt.com/', '_blank');
+                        showAlert('✅ Prompt copied to clipboard!\n\nChatGPT is opening — just paste (Ctrl+V) into the chat box.');
+                    } catch(e) {
+                        window.open('https://chatgpt.com/', '_blank');
+                        showAlert('⚠️ Could not auto-copy.\n\nChatGPT is opening. Please manually copy your questions and paste them.');
+                    }
+                    document.body.removeChild(ta);
+                });
             };
 
             const navigateHome = () => {
