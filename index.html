@@ -6827,6 +6827,8 @@ const flatQuestions = [];
 
             const [pendingBadgeAlerts, setPendingBadgeAlerts] = useState([]);
             const [showBadgeModal, setShowBadgeModal] = useState(false);
+            const [isResolveSession, setIsResolveSession] = useState(false);
+            const [sessionAnswers, setSessionAnswers] = useState({});
 
             // Custom Dialog state to replace alert() and confirm() completely
             const [dialog, setDialog] = useState({ isOpen: false, message: '', type: 'alert', onConfirm: null });
@@ -6931,14 +6933,13 @@ const flatQuestions = [];
             const resolveReviewQuestions = () => {
                 if (hardOrWrongIds.length === 0) return;
                 const reviewQs = flatQuestions.filter(q => hardOrWrongIds.includes(q.id)).sort(() => 0.5 - Math.random());
-                
-                setGlobalAnswers(prev => {
-                    const newAnswers = { ...prev };
-                    reviewQs.forEach(q => delete newAnswers[q.id]);
-                    return newAnswers;
-                });
+                setIsResolveSession(true);
+                setSessionAnswers({});
                 startQuiz(reviewQs, "Review: Hard & Incorrect Questions", 0);
+                setShowExplanation(false);
             };
+
+
 
             const reviewMarkedQuestions = () => {
                 if (markedIds.length === 0) return;
@@ -6990,12 +6991,17 @@ const flatQuestions = [];
 
             const handleOptionClick = (origIdx) => {
                 const currentQ = activeQuiz[currentQIndex];
-                if (globalAnswers[currentQ.id] !== undefined) return; 
-                
+                if (!isResolveSession && globalAnswers[currentQ.id] !== undefined) return;
+                // In resolve mode, only allow answering once per session per question
+                if (isResolveSession && sessionAnswers[currentQ.id] !== undefined) return;
+
                 const isCorrect = origIdx === currentQ.a;
                 setGlobalAnswers(prev => ({ ...prev, [currentQ.id]: origIdx }));
+                if (isResolveSession) {
+                    setSessionAnswers(prev => ({ ...prev, [currentQ.id]: origIdx }));
+                }
                 setShowExplanation(true);
-                
+
                 if (hardIds.includes(currentQ.id)) {
                     setHardIds(prev => prev.filter(id => id !== currentQ.id));
                 }
@@ -7055,6 +7061,7 @@ const flatQuestions = [];
             };
 
             const navigateHome = () => {
+                setIsResolveSession(false);
                 setView('menu');
                 triggerBadgeModalIfAny();
             };
@@ -7063,8 +7070,11 @@ const flatQuestions = [];
                 if (currentQIndex < activeQuiz.length - 1) {
                     const nextIdx = currentQIndex + 1;
                     setCurrentQIndex(nextIdx);
-                    setShowExplanation(globalAnswers[activeQuiz[nextIdx].id] !== undefined);
+                    const nextId = activeQuiz[nextIdx].id;
+                    setShowExplanation(isResolveSession ? sessionAnswers[nextId] !== undefined : globalAnswers[nextId] !== undefined);
                 } else {
+                    setIsResolveSession(false);
+                    setSessionAnswers({});
                     setView('results');
                     triggerBadgeModalIfAny();
                 }
@@ -7074,7 +7084,8 @@ const flatQuestions = [];
                 if (currentQIndex > 0) {
                     const prevIdx = currentQIndex - 1;
                     setCurrentQIndex(prevIdx);
-                    setShowExplanation(globalAnswers[activeQuiz[prevIdx].id] !== undefined);
+                    const prevId = activeQuiz[prevIdx].id;
+                    setShowExplanation(isResolveSession ? sessionAnswers[prevId] !== undefined : globalAnswers[prevId] !== undefined);
                 }
             };
 
@@ -7340,8 +7351,8 @@ const flatQuestions = [];
                                         {activeQuiz[currentQIndex].shuffledIndices.map((origIdx, renderIdx) => {
                                             const currentQ = activeQuiz[currentQIndex];
                                             const currentQId = currentQ.id;
-                                            const isAnswered = globalAnswers[currentQId] !== undefined;
-                                            const isSelected = globalAnswers[currentQId] === origIdx;
+                                            const isAnswered = isResolveSession ? sessionAnswers[currentQId] !== undefined : globalAnswers[currentQId] !== undefined;
+                                            const isSelected = isResolveSession ? sessionAnswers[currentQId] === origIdx : globalAnswers[currentQId] === origIdx;
                                             const isCorrect = currentQ.a === origIdx;
                                             const isAiOption = currentQ.aiOptIndices?.includes(origIdx);
                                             const optionText = currentQ.o[origIdx];
@@ -7394,13 +7405,13 @@ const flatQuestions = [];
                                     </div>
 
                                     {}
-                                    {globalAnswers[activeQuiz[currentQIndex].id] !== undefined && showExplanation && activeQuiz[currentQIndex].evaluation && (
+                                    {(isResolveSession ? sessionAnswers[activeQuiz[currentQIndex].id] !== undefined : globalAnswers[activeQuiz[currentQIndex].id] !== undefined) && showExplanation && activeQuiz[currentQIndex].evaluation && (
                                         <div className="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl text-sm text-indigo-900 dark:text-indigo-200 fade-in shadow-sm">
                                             <strong className="block mb-1 text-indigo-700 dark:text-indigo-400">📝 Evaluation:</strong> {activeQuiz[currentQIndex].evaluation}
                                         </div>
                                     )}
 
-                                    {globalAnswers[activeQuiz[currentQIndex].id] !== undefined && (
+                                    {(isResolveSession ? sessionAnswers[activeQuiz[currentQIndex].id] !== undefined : globalAnswers[activeQuiz[currentQIndex].id] !== undefined) && (
                                         <div className="mt-4 flex justify-end">
                                             <button 
                                                 onClick={() => setShowExplanation(!showExplanation)}
@@ -7555,4 +7566,4 @@ const flatQuestions = [];
         root.render(<App />);
     </script>
 </body>
-</html>  
+</html>
